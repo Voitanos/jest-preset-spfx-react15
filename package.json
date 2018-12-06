@@ -1,0 +1,58 @@
+{
+  "name": "@voitanos/jest-preset-spfx-react15",
+  "description": "Jest preset configuration for SharePoint Framework projects that leverage React v15 (SPFx <=1.6.0).",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "@types/enzyme-adapter-react-15": "1.0.3",
+    "@types/enzyme-to-json": "1.5.2",
+    "@types/jest": "^23.3.10",
+    "@types/react-test-renderer": "15.5.7",
+    "enzyme": "3.4.1",
+    "enzyme-adapter-react-15": "1.0.6",
+    "enzyme-to-json": "3.3.4",
+    "identity-obj-proxy": "^3.0.0",
+    "raf": "3.4.0",
+    "react-test-renderer": "15.6.2",
+    "ts-jest": "23.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.12",
+    "typescript": "2.4.2"
+  },
+  "peerDependencies": {
+    "jest": "^23.6.0"
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "postinstall": "node postinstall/index.js"
+  },
+  "keywords": [
+    "enzyme",
+    "jest",
+    "office 365",
+    "office365",
+    "react",
+    "sharepoint framework",
+    "sharepoint",
+    "spfx",
+    "test",
+    "tools"
+  ],
+  "homepage": "https://github.com/Voitanos/jest-preset-spfx-react15",
+  "bugs": {
+    "url": "https://github.com/Voitanos/jest-preset-spfx-react15/issues"
+  },
+  "issues": "https://github.com/Voitanos/jest-preset-spfx-react15/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Voitanos/jest-preset-spfx-react15"
+  },
+  "author": "Andrew Connell <andrew@voitanos.io>",
+  "maintainers": [
+    {
+      "name": "andrewconnell",
+      "email": "andrew@voitanos.io"
+    }
+  ]
+}

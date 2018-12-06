@@ -1,0 +1,4 @@
+{
+  "preset": "jest-preset-spfx-react15",
+  "rootDir": "../src"
+}
