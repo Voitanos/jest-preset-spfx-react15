@@ -1,20 +1,19 @@
-# jest-preset-spfx
+# jest-preset-spfx-react15
 
-A [Jest](http://facebook.github.io/jest) preset configuration for [SharePoint Framework](https://docs.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview) (SPFx) projects.
+A [Jest](http://facebook.github.io/jest) preset configuration for [SharePoint Framework](https://docs.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview) (SPFx) projects that leverage React v15. React v15 is used by SPFx projects created with the [SPFx Yeoman generator](https://www.npmjs.com/@microsoft/generator-sharepoint) v1.6.0 or earlier. It includes the popular [Enzyme](https://airbnb.io/enzyme/) React rendering library from Airbnb
 
-> **NOTE**: This preset does not contain any support for SPFx projects that utilize React.
->
-> See the related packages [jest-preset-spfx-react15](https://www.npmjs.com/package/@voitanos/jest-preset-spfx-react15) & [jest-preset-spfx-react16](https://www.npmjs.com/package/@voitanos/jest-preset-spfx-react16) if you are leveraging React in your SPFx projects.
+> See the related packages [jest-preset-spfx](https://www.npmjs.com/package/@voitanos/jest-preset-spfx) for SPFx projects without React & [jest-preset-spfx-react16](https://www.npmjs.com/package/@voitanos/jest-preset-spfx-react16) if you are leveraging React v16.
 
 ## Installation
 
 Install Jest & this preset using your package manager of choice:
 
 ```shell
-npm install jest jest-preset-spfx --save-dev
+npm install jest @voitanos/jest-preset-spfx-react15 --save-dev
 ```
 
-This will install `jest`, `@types/jest`, `ts-jest` & `identity-obj-proxy` as dependencies in your project.
+This will install `@types/enzyme-adapter-react-15`, `@types/enzyme-to-json`, `@types/jest`, `@types/react-test-renderer`, `enzyme`, `enzyme-adapter-react-15`, `enzyme-to-json`, `identity-obj-proxy`, `raf`, `react-test-renderer` & `ts-jest`
+ as dependencies in your project. The specific versions needed for React v15 are used
 
 The postinstall script will verify you have a `./config/jest.config.json` file and update your `package.json` scripts with two scripts for running Jest tests with this configuration: `test` & `test:watch`.
 
@@ -24,28 +23,43 @@ If the configuration file is not present, it will create it. If it is present, i
 
 ## Validating Installation
 
-To validate a successful install, add a new file `SampleTests.spec.ts` to the `./src/webparts` folder with the following code:
+To validate a successful install, do one of the following two things:
 
-```ts
-import 'jest';
+### Option 1: Add example tests
 
-test('1+1 should equal 2', () => {
-  const result = 1+1;
-  expect(result).toBe(2);
-});
-```
+1. Copy the folder **examples** from the installed package (*also found [here in the source repo](https://github.com/Voitanos/jest-preset-spfx-react15/tree/master/examples)*) into the project's **src** folder.
+1. Execute Jest to run the tests:
 
-Execute Jest to run the tests:
+    ```shell
+    npm test
+    ```
 
-```shell
-npm test
-```
+1. Observe five (5) passing tests: one for React rendering, four for non-React Typescript).
 
-A single should pass.
+### Option 2: Create your own test
+
+1. Add a new file `SampleTests.spec.ts` to the `./src/webparts` folder with the following code:
+
+    ```ts
+    import 'jest';
+
+    test('1+1 should equal 2', () => {
+      const result = 1+1;
+      expect(result).toBe(2);
+    });
+    ```
+
+1. Execute Jest to run the tests:
+
+    ```shell
+    npm test
+    ```
+
+1. Observe a single (1) passing test.
 
 ## How it works
 
-This package contains a [base Jest configuration](https://github.com/Voitanos/jest-preset-spfx/blob/master/jest-preset.json) that your project will inherit. It does this by using the `preset` property in the `jest.config.json` file.
+This package contains a [base Jest configuration](https://github.com/Voitanos/jest-preset-spfx-react15/blob/master/jest-preset.json) that your project will inherit. It does this by using the `preset` property in the `jest.config.json` file.
 
 ## References
 
@@ -72,6 +86,13 @@ The following preset is used for SPFx projects:
     "\\.(css|scss)$": "identity-obj-proxy",
     "^resx-strings/en-us.json": "<rootDir>/node_modules/@microsoft/sp-core-library/lib/resx-strings/en-us.json"
   },
+  "setupFiles": [
+    "raf/polyfill",
+    "@voitanos/jest-preset-spfx-react15/jest.enzyme.js"
+  ],
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ],
   "testMatch": [
     "**/src/**/*.(spec|test).+(ts|js)?(x)",
     "**/__tests__/**/*.(spec|test).+(ts|js)?(x)"
@@ -87,6 +108,9 @@ Explanation of select configuration properties above:
 - **moduleNameMapper**:
   - when Jest sees a request for a CSS/SCSS file in the source files, it effectively ignores it using the `identity-obj-proxy` package
   - when jest sees a request for `en-us.json`, it is provided a helper path to find the file
+- **setupFules**:
+  - installs the **requestAnimationFrames** polyfill needed for headless browser testing
+  - configures Enzyme to use the React v15 adapter
 - **testMatch**: all tests found either in a special `__tests__` folder or within the `src` folder with the following names will be found:
   - `*.spec.ts`
   - `*.spec.tsx`

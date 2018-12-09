@@ -11,7 +11,7 @@
   },
   "setupFiles": [
     "raf/polyfill",
-    "jest-preset-spfx-react15/jest.enzyme.js"
+    "@voitanos/jest-preset-spfx-react15/jest.enzyme.js"
   ],
   "snapshotSerializers": [
     "enzyme-to-json/serializer"
