@@ -37,26 +37,6 @@ const projectPath = path.resolve(path.join(__dirname, paths.join('/')));
 
 /**
  * 
- * STEP 1: JEST + ENZYME SETUP FILE
- * 
- */
-// console.log("INFO: Adding Jest & Enzyme setup file to: ./config/jest.enzyme.js");
-// const jestEnzymeFilePath = path.resolve(path.join(projectPath, 'config', 'jest.enzyme.js'));
-// // check if file present
-// if (fs.existsSync(jestEnzymeFilePath)) {
-//   console.log('      .. jest.enzyme.js exists');
-// } else {
-//   // doesn't exist, so copy it in
-//   console.log('INFO: jest.enzyme.js not found; creating it');
-  
-//   // get path to sample file
-//   const jestConfigTemplate = path.join(CURR_DIR, '..', 'resources', 'jest.config.json');
-//   // copy file in
-//   fs.copyFileSync(jestConfigTemplate, jestConfigFilePath);
-// }
-
-/**
- * 
  * STEP 2: JEST CONFIG FILE
  * 
  */
@@ -68,8 +48,8 @@ if (fs.existsSync(jestConfigFilePath)) {
   console.log('      .. jest.config.json exists... verifying properties');
   // exists, check the properties are correct
   const jestConfigFile: any = require(jestConfigFilePath);
-  if (!jestConfigFile.preset || jestConfigFile.preset !== 'jest-preset-spfx') {
-    console.warn('ACTION REQUIRED: ensure jest.config.json has "preset": "jest-preset-spfx"');
+  if (!jestConfigFile.preset || jestConfigFile.preset !== '@voitanos/jest-preset-spfx-react15') {
+    console.warn('ACTION REQUIRED: ensure jest.config.json has "preset": "@voitanos/jest-preset-spfx-react15"');
   }
   if (!jestConfigFile.rootDir || jestConfigFile.rootDir !== '../src') {
     console.warn('ACTION REQUIRED: ensure jest.config.json has "rootDir": "../src"');
