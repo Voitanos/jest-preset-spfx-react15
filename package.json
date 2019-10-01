@@ -1,12 +1,13 @@
 {
   "name": "@voitanos/jest-preset-spfx-react15",
   "description": "Jest preset configuration for SharePoint Framework projects that leverage React v15 (SPFx <=1.6.0).",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "license": "MIT",
   "dependencies": {
     "@types/enzyme-adapter-react-15": "1.0.3",
     "@types/enzyme-to-json": "1.5.2",
-    "@types/jest": "^23.3.10",
+    "@types/enzyme": "3.1.8",
+    "@types/jest": "23.3.10",
     "@types/react-test-renderer": "15.5.7",
     "enzyme": "3.4.1",
     "enzyme-adapter-react-15": "1.0.6",
@@ -21,7 +22,7 @@
     "typescript": "2.4.2"
   },
   "peerDependencies": {
-    "jest": "^23.6.0"
+    "jest": "23.6.0"
   },
   "scripts": {
     "build": "tsc -p ./",

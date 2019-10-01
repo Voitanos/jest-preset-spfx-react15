@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-export interface ISampleProps { }
+// export interface ISampleProps { }
 
-export class Sample extends React.Component<ISampleProps, {}> {
-  public render(): React.ReactElement<ISampleProps> {
+export class Sample extends React.Component<{}, {}> {
+  public render(): React.ReactElement<{}> {
 
     return (
       <div>

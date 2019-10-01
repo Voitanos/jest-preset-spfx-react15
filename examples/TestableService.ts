@@ -12,8 +12,8 @@ export class TestableService {
   public addPromise(operandA: number, operandB: number): Promise<number> {
     return new Promise<number>((resolve, reject) => {
       setTimeout(() => {
-        const result = operandA + operandB;
-        if (result !== 9){
+        const result: number = operandA + operandB;
+        if (result !== 9) {
           resolve(operandA + operandB);
         } else {
           reject(new Error('Forced reject when result =9'));

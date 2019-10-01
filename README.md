@@ -9,7 +9,7 @@ A [Jest](http://facebook.github.io/jest) preset configuration for [SharePoint Fr
 Install Jest & this preset using your package manager of choice:
 
 ```shell
-npm install jest @voitanos/jest-preset-spfx-react15 --save-dev
+npm install jest@23.6.0 @voitanos/jest-preset-spfx-react15 --save-dev --save-exact
 ```
 
 This will install `@types/enzyme-adapter-react-15`, `@types/enzyme-to-json`, `@types/jest`, `@types/react-test-renderer`, `enzyme`, `enzyme-adapter-react-15`, `enzyme-to-json`, `identity-obj-proxy`, `raf`, `react-test-renderer` & `ts-jest`
@@ -44,8 +44,8 @@ To validate a successful install, do one of the following two things:
     import 'jest';
 
     test('1+1 should equal 2', () => {
-      const result = 1+1;
-      expect(result).toBe(2);
+      const result: number = 1 + 1;
+        expect(result).toBe(2);
     });
     ```
 
