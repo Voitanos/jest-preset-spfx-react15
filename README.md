@@ -1,8 +1,14 @@
 # jest-preset-spfx-react15
 
+[![npm @latest](https://img.shields.io/npm/v/@voitanos/jest-preset-spfx-react15/latest?style=flat-square)](https://www.npmjs.com/package/@voitanos/jest-preset-spfx-react15)
+
+[![Voitanos on Twitter](https://img.shields.io/badge/Twitter-%40voitanos-blue?style=flat-square)](https://www.twitterl.com/voitanos)
+
 A [Jest](http://facebook.github.io/jest) preset configuration for [SharePoint Framework](https://docs.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview) (SPFx) projects that leverage React v15. React v15 is used by SPFx projects created with the [SPFx Yeoman generator](https://www.npmjs.com/@microsoft/generator-sharepoint) v1.6.0 or earlier. It includes the popular [Enzyme](https://airbnb.io/enzyme/) React rendering library from Airbnb
 
 > See the related packages [jest-preset-spfx](https://www.npmjs.com/package/@voitanos/jest-preset-spfx) for SPFx projects without React & [jest-preset-spfx-react16](https://www.npmjs.com/package/@voitanos/jest-preset-spfx-react16) if you are leveraging React v16.
+
+> **IMPORTANT**: This project is frozen and will not be updated in the future. This is only for React 15 which was only included up to SPFx v1.6.0. That version was pinned to Node.js v6 or v8 & TypeScript v2.4. Newer packages don't support Node or TypeScript that far back.
 
 ## Installation
 
